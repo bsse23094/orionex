@@ -175,3 +175,80 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', closeMobileMenu);
     });
 });
+
+// Replace the existing form submission code with this
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form = this;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitText = document.getElementById('submitText');
+    const spinner = document.getElementById('loadingSpinner');
+    const formMessage = document.getElementById('formMessage');
+
+    // Loading state
+    submitText.textContent = 'Sending...';
+    spinner.style.display = 'inline-block';
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+
+    try {
+        await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // ensures it sends without CORS blocking
+        });
+
+        // Always treat as success if fetch() doesn't throw
+        formMessage.textContent = 'Message sent successfully! We will get back to you soon.';
+        formMessage.className = 'form-message success';
+        formMessage.style.display = 'block';
+        form.reset();
+    } catch (err) {
+        // Only fires if network completely fails
+        formMessage.textContent = 'Failed to send message. Please try again or email us directly.';
+        formMessage.className = 'form-message error';
+        formMessage.style.display = 'block';
+        console.error('Form send error:', err);
+    }
+
+    // Restore button state
+    submitText.textContent = 'Send Message';
+    spinner.style.display = 'none';
+    submitBtn.disabled = false;
+
+    // Hide after 5s
+    setTimeout(() => {
+        formMessage.style.display = 'none';
+    }, 5000);
+});
+function setupRocketAnimation() {
+    const rocket = document.getElementById('timelineRocket');
+    const processSection = document.querySelector('.process');
+    const timeline = document.querySelector('.timeline');
+
+    if (!rocket || !processSection || !timeline) return;
+
+    function updateRocketPosition() {
+        const sectionTop = processSection.offsetTop;
+        const sectionHeight = processSection.offsetHeight;
+        const scrollY = window.scrollY + window.innerHeight / 2;
+
+        const minY = sectionTop;
+        const maxY = sectionTop + sectionHeight - rocket.offsetHeight;
+
+        if (scrollY >= minY && scrollY <= maxY) {
+            const offset = scrollY - sectionTop;
+            rocket.style.transform = `translateY(${offset}px)`;
+        } else if (scrollY < minY) {
+            rocket.style.transform = `translateY(0)`;
+        } else {
+            rocket.style.transform = `translateY(${sectionHeight - rocket.offsetHeight}px)`;
+        }
+    }
+
+    window.addEventListener('scroll', updateRocketPosition);
+    window.addEventListener('resize', updateRocketPosition);
+    updateRocketPosition();
+}
