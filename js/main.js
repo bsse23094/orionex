@@ -1,3 +1,118 @@
+// Enhanced starfield
+function createStars() {
+    const stars = document.getElementById('stars');
+    const twinkling = document.getElementById('twinkling');
+    const count = 200;
+    
+    // Clear existing stars
+    stars.innerHTML = '';
+    twinkling.innerHTML = '';
+    
+    // Base stars
+    for (let i = 0; i < count; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        const size = Math.random() * 3;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const duration = Math.random() * 5 + 3 + 's';
+        const delay = Math.random() * 5 + 's';
+        
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${x}%`;
+        star.style.top = `${y}%`;
+        star.style.animationDuration = duration;
+        star.style.animationDelay = delay;
+        
+        stars.appendChild(star);
+    }
+    
+    // Twinkling stars
+    for (let i = 0; i < count/2; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        const size = Math.random() * 2;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const duration = Math.random() * 2 + 1 + 's';
+        const delay = Math.random() * 3 + 's';
+        const opacity = Math.random() * 0.5 + 0.3;
+        
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${x}%`;
+        star.style.top = `${y}%`;
+        star.style.animation = `twinkle ${duration} infinite ease-in-out ${delay}`;
+        star.style.opacity = opacity;
+        
+        twinkling.appendChild(star);
+    }
+}
+
+// Navbar Scroll Behavior
+let lastScroll = 0;
+const navbar = document.querySelector('nav');
+const mobileMenu = document.getElementById('mobileMenu');
+
+function handleScroll() {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll <= 0) {
+        navbar.classList.remove('hidden');
+        return;
+    }
+    
+    // Only hide/show if mobile menu isn't open
+    if (!mobileMenu.classList.contains('active')) {
+        if (currentScroll > lastScroll && !navbar.classList.contains('hidden')) {
+            navbar.classList.add('hidden');
+        } else if (currentScroll < lastScroll && navbar.classList.contains('hidden')) {
+            navbar.classList.remove('hidden');
+        }
+    }
+    
+    lastScroll = currentScroll;
+}
+
+// Mobile Menu Toggle - Improved Version
+function setupMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    // Toggle menu when hamburger icon is clicked
+    menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent event bubbling
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+    });
+    
+    // Close menu when X icon is clicked
+    closeMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeMobileMenu();
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && e.target !== menuToggle) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close menu when clicking links
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+}
+
+function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+}
 // Service data
 const services = [
     {
@@ -20,36 +135,10 @@ const services = [
     }
 ];
 
-// Create starfield
-function createStars() {
-    const stars = document.getElementById('stars');
-    const count = 150;
-    
-    for (let i = 0; i < count; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        
-        // Random properties
-        const size = Math.random() * 2;
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        const duration = Math.random() * 5 + 3 + 's';
-        const delay = Math.random() * 5 + 's';
-        
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
-        star.style.left = `${x}%`;
-        star.style.top = `${y}%`;
-        star.style.animationDuration = duration;
-        star.style.animationDelay = delay;
-        
-        stars.appendChild(star);
-    }
-}
-
 // Load services
 function loadServices() {
-    const grid = document.querySelector('.services-grid');
+    const grid = document.getElementById('servicesGrid');
+    grid.innerHTML = ''; // Clear existing content
     
     services.forEach(service => {
         const techItems = service.tech.map(tech => 
@@ -73,18 +162,16 @@ function loadServices() {
     });
 }
 
-// Smooth scroll
-function setupScroll() {
-    document.getElementById('scrollDown').addEventListener('click', () => {
-        document.getElementById('services').scrollIntoView({ 
-            behavior: 'smooth' 
-        });
-    });
-}
-
 // Initialize
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     createStars();
     loadServices();
-    setupScroll();
+    setupMobileMenu();
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
 });

@@ -11,38 +11,159 @@
 <body>
     <!-- Starfield Background -->
     <div class="stars" id="stars"></div>
+    <div class="twinkling" id="twinkling"></div>
     
     <!-- Navigation -->
-    <nav>
-        <a href="#" class="logo">ORIONEX</a>
-        <div class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#">Work</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </div>
-    </nav>
+   <nav>
+    <a href="#" class="logo">ORIONEX</a>
+    <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+    </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenu" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+    </button>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</div>
     
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>AI-Powered Digital Solutions</h1>
             <p>We build next-generation applications with cutting-edge AI, responsive web architecture, and embedded systems that push boundaries.</p>
-            <a href="#services" class="cta-button">Explore Our Services</a>
+            <a href="#contact" class="cta-button">Contact Us</a>
         </div>
-        <div class="scroll-down" id="scrollDown">
-            Scroll Down
-        </div>
+    
     </section>
     
     <!-- Services Section -->
     <section class="services" id="services">
         <h2 class="section-title">Our Core Services</h2>
-        <div class="services-grid">
-            <!-- Service Cards will be loaded by JavaScript -->
+        <div class="services-grid" id="servicesGrid">
+            <!-- Loaded by JavaScript -->
         </div>
     </section>
 
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">About Orionex</h2>
+            <div class="about-text">
+                <p>At Orionex, our AI engineers, full-stack developers, and IoT specialists push the boundaries of digital innovation.</p>
+                <p>We've delivered over 50 projects helping startups and enterprises harness cutting-edge technology.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="52">52</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="7">7</div>
+                        <div class="stat-label">AI Models</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="103">103</div>
+                        <div class="stat-label">Satisfied Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>We value your feedback</h3>
+                <p></p>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>orionexcorp@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+92 300 9586306</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Mission Brief" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>ORIONEX</span>
+                <p>AI-Powered Digital Solutions</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navigation</h4>
+                    <a href="#services">Services</a>
+                    <a href="#work">Work</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="link-group">
+                    <h4>Technologies</h4>
+                    <a href="#">AI & ML</a>
+                    <a href="#">Web Development</a>
+                    <a href="#">Embedded Systems</a>
+                    <a href="#">IoT Solutions</a>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Orionex Technologies. All systems operational.</p>
+            <!-- <div class="back-to-top" id="backToTop">
+                <i class="fas fa-arrow-up"></i>
+            </div> -->
+        </div>
+    </footer>
+
+    <div class="mobile-menu" id="mobileMenu">
+    <div class="close-menu" id="closeMenu">
+        <i class="fas fa-times"></i>
+    </div>
+    <a href="#services" onclick="closeMobileMenu()">Services</a>
+    <a href="#work" onclick="closeMobileMenu()">Work</a>
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
     <script src="js/main.js"></script>
 </body>
 </html>
