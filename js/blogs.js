@@ -170,3 +170,175 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Swipe gestures for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+function handleTouchStart(e) {
+    touchStartX = e.changedTouches[0].screenX;
+}
+
+function handleTouchEnd(e) {
+    if (window.innerWidth >= 768) return;
+    
+    touchEndX = e.changedTouches[0].screenX;
+    const threshold = 50; // minimum swipe distance
+    
+    if (touchStartX - touchEndX > threshold) {
+        // Swipe left - next post
+        const currentPost = document.querySelector('.blog-post.highlighted') || 
+                          document.querySelector('.blog-post:first-child');
+        const nextPost = currentPost.nextElementSibling;
+        if (nextPost && nextPost.classList.contains('blog-post')) {
+            nextPost.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            nextPost.classList.add('highlighted');
+            currentPost.classList.remove('highlighted');
+        }
+    } else if (touchEndX - touchStartX > threshold) {
+        // Swipe right - previous post
+        const currentPost = document.querySelector('.blog-post.highlighted') || 
+                          document.querySelector('.blog-post:first-child');
+        const prevPost = currentPost.previousElementSibling;
+        if (prevPost && prevPost.classList.contains('blog-post')) {
+            prevPost.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            prevPost.classList.add('highlighted');
+            currentPost.classList.remove('highlighted');
+        }
+    }
+}
+
+// Add event listeners for touch devices
+if ('ontouchstart' in window) {
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchend', handleTouchEnd, false);
+}
+
+// Back to top button
+const backToTopButton = document.createElement('button');
+backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+backToTopButton.classList.add('back-to-top');
+backToTopButton.setAttribute('aria-label', 'Back to top');
+document.body.appendChild(backToTopButton);
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+});
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+// Enhanced Search Functionality
+const searchInput = document.getElementById('blogSearch');
+const searchButton = document.getElementById('searchButton');
+const blogPosts = document.querySelectorAll('.blog-post');
+
+function performSearch() {
+    const query = searchInput.value.trim().toLowerCase();
+    let resultsCount = 0;
+    
+    // Remove previous highlights
+    document.querySelectorAll('mark').forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+    });
+    
+    if (query === '') {
+        // Show all posts if search is empty
+        blogPosts.forEach(post => {
+            post.style.display = 'block';
+            post.style.animation = 'none';
+        });
+        document.querySelector('.search-results-message')?.remove();
+        return;
+    }
+    
+    blogPosts.forEach(post => {
+        const title = post.querySelector('h2').textContent.toLowerCase();
+        const excerpt = post.querySelector('.post-excerpt').textContent.toLowerCase();
+        const fullContent = post.querySelector('.post-full-content').textContent.toLowerCase();
+        
+        if (title.includes(query) || excerpt.includes(query) || fullContent.includes(query)) {
+            post.style.display = 'block';
+            post.style.animation = 'fadeIn 0.5s ease-out';
+            highlightText(post, query);
+            resultsCount++;
+            
+            // Auto-expand posts with search results on mobile
+            if (window.innerWidth < 768 && !post.classList.contains('expanded')) {
+                post.classList.add('expanded');
+                const fullContent = post.querySelector('.post-full-content');
+                fullContent.style.maxHeight = fullContent.scrollHeight + 'px';
+            }
+        } else {
+            post.style.display = 'none';
+        }
+    });
+    
+    // Show results count
+    let resultsMessage = document.querySelector('.search-results-message');
+    if (!resultsMessage) {
+        resultsMessage = document.createElement('div');
+        resultsMessage.className = 'search-results-message';
+        searchInput.parentNode.appendChild(resultsMessage);
+    }
+    
+    if (resultsCount > 0) {
+        resultsMessage.textContent = `Found ${resultsCount} ${resultsCount === 1 ? 'result' : 'results'}`;
+        resultsMessage.style.color = 'var(--electric-blue)';
+    } else {
+        resultsMessage.textContent = 'No results found';
+        resultsMessage.style.color = 'var(--metallic)';
+    }
+    
+    resultsMessage.style.display = 'block';
+}
+
+function highlightText(element, query) {
+    const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+    );
+    
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    
+    nodes.forEach(node => {
+        if (node.parentNode.nodeName === 'MARK') return;
+        
+        const text = node.nodeValue;
+        const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+        const newText = text.replace(regex, match => `<mark>${match}</mark>`);
+        
+        if (newText !== text) {
+            const span = document.createElement('span');
+            span.innerHTML = newText;
+            node.parentNode.replaceChild(span, node);
+        }
+    });
+}
+
+// Event listeners for search
+searchButton.addEventListener('click', performSearch);
+searchInput.addEventListener('input', performSearch);
+searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') performSearch();
+});
+
+// Add focus effect
+searchInput.addEventListener('focus', () => {
+    searchInput.parentElement.style.boxShadow = '0 0 15px rgba(0, 209, 255, 0.3)';
+});
+
+searchInput.addEventListener('blur', () => {
+    searchInput.parentElement.style.boxShadow = 'none';
+});

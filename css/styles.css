@@ -1479,3 +1479,166 @@ twinkling {
     display: block !important;
     margin-top: 1.5rem;
 }
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 209, 255, 0.2);
+    border: 1px solid var(--electric-blue);
+    border-radius: 50%;
+    color: var(--electric-blue);
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: rgba(0, 209, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Enhanced Search Widget - Fixed Version */
+/* ===== Fixed Premium Search Bar ===== */
+.search-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+#blogSearch {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    padding-right: 3.5rem; /* Space for icon */
+    background: rgba(10, 10, 22, 0.9);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: 8px;
+    color: var(--star-white);
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 
+        0 1px 3px rgba(0, 0, 0, 0.2),
+        inset 0 0 8px rgba(138, 43, 226, 0.1);
+    backdrop-filter: blur(6px);
+    /* Ensure input doesn't stretch with results */
+    box-sizing: border-box;
+    height: 52px; /* Fixed height */
+}
+
+/* Premium Search Button - Fixed Position */
+#searchButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 52px; /* Match input height */
+    width: 3rem;
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.3), rgba(0, 209, 255, 0.2));
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: var(--electric-blue);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+    /* Prevent button from being affected by results */
+    transform: translateY(0);
+}
+
+#searchButton:hover {
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.4), rgba(0, 209, 255, 0.3));
+    box-shadow: 
+        inset 0 0 10px rgba(0, 209, 255, 0.3),
+        0 0 15px rgba(0, 209, 255, 0.2);
+}
+
+/* Search Results - Positioned Below */
+.search-results-container {
+    position: absolute;
+    width: 100%;
+    top: 60px; /* Position below search bar */
+    left: 0;
+    z-index: 10;
+}
+
+.search-results-message {
+    display: block;
+    padding: 0.8rem 1rem;
+    background: rgba(10, 10, 22, 0.95);
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    border-radius: 0 0 8px 8px;
+    color: var(--metallic);
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-top: none;
+    animation: fadeIn 0.3s ease-out;
+    margin-top: -1px; /* Overlap with search input */
+}
+
+/* Active State Adjustments */
+.search-container.active {
+    margin-bottom: 3rem; /* Extra space for results */
+}
+
+
+.search-container.active #blogSearch {
+     border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: var(--electric-blue);
+    box-shadow: 
+        0 0 0 2px rgba(0, 209, 255, 0.3),
+        0 0 25px rgba(0, 209, 255, 0.4);
+}
+
+.search-container.active #searchButton {
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.4), rgba(0, 209, 255, 0.3));
+    color: var(--star-white);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #blogSearch {
+        height: 48px;
+        padding: 0.9rem 1.2rem;
+        padding-right: 3rem;
+    }
+    
+    #searchButton {
+        height: 48px;
+        width: 2.8rem;
+    }
+    
+    .search-results-container {
+        top: 56px;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
