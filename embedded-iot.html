@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orionex | Embedded & IoT Solutions</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo_1.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/embedded-iot.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+</head>
+<body>
+    <!-- Starfield Background -->
+    <div class="stars" id="stars"></div>
+    <div class="twinkling" id="twinkling"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">ORIONEX</a>
+        <div class="nav-links">
+            <div class="dropdown">
+                <a href="#services" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="ai-automation.html"><i class="fas fa-robot"></i> AI & Automation</a>
+                    <a href="web-development.html"><i class="fas fa-globe"></i> Web Development</a>
+                    <a href="embedded-iot.html" class="active"><i class="fas fa-microchip"></i> Embedded & IoT</a>
+                </div>
+            </div>
+            <a href="index.html#about">About</a>
+            <a href="index.html#process">Our Process</a>
+            <a href="index.html#technologies">Technologies</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#services">Services</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#process">Our Process</a>
+        <a href="index.html#technologies">Technologies</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="hero-content">
+            <h1>Embedded & IoT Solutions</h1>
+            <p>Smart connected devices and industrial IoT solutions with real-time analytics and edge computing capabilities.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+        <div class="hero-graphic">
+            <img src="images/raspbarry_pi.png" alt="IoT Device" class="hero-image">
+        </div>
+    </section>
+
+    <!-- Service Details -->
+    <section class="service-details">
+        <div class="section-header">
+            <h2>Our Embedded & IoT Expertise</h2>
+            <p>We build intelligent hardware solutions that connect the physical and digital worlds.</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card" data-tilt>
+                <div class="feature-icon">
+                    <i class="fas fa-microchip"></i>
+                    <div class="icon-pulse"></div>
+                </div>
+                <h3>Custom Embedded Systems</h3>
+                <p>From prototype to production, we design and develop custom embedded solutions tailored to your specific requirements.</p>
+                <ul class="tech-tags">
+                    <li>STM32</li>
+                    <li>ESP32</li>
+                    <li>ARM Cortex</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card" data-tilt>
+                <div class="feature-icon">
+                    <i class="fas fa-network-wired"></i>
+                    <div class="icon-pulse"></div>
+                </div>
+                <h3>Industrial IoT</h3>
+                <p>Monitor and control industrial equipment with real-time data collection and predictive maintenance capabilities.</p>
+                <ul class="tech-tags">
+                    <li>Modbus</li>
+                    <li>OPC UA</li>
+                    <li>MQTT</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card" data-tilt>
+                <div class="feature-icon">
+                    <i class="fas fa-home"></i>
+                    <div class="icon-pulse"></div>
+                </div>
+                <h3>Smart Home Solutions</h3>
+                <p>Automate and secure your living spaces with our customizable smart home ecosystems.</p>
+                <ul class="tech-tags">
+                    <li>Zigbee</li>
+                    <li>Z-Wave</li>
+                    <li>BLE Mesh</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card" data-tilt>
+                <div class="feature-icon">
+                    <i class="fas fa-car"></i>
+                    <div class="icon-pulse"></div>
+                </div>
+                <h3>Automotive Electronics</h3>
+                <p>Advanced telematics, infotainment systems, and vehicle control modules for modern automobiles.</p>
+                <ul class="tech-tags">
+                    <li>CAN Bus</li>
+                    <li>AutoSAR</li>
+                    <li>ISO 26262</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card" data-tilt>
+                <div class="feature-icon">
+                    <i class="fas fa-wifi"></i>
+                    <div class="icon-pulse"></div>
+                </div>
+                <h3>Wireless Connectivity</h3>
+                <p>Seamless integration of WiFi, Bluetooth, LoRa, and cellular connectivity in your devices.</p>
+                <ul class="tech-tags">
+                    <li>LoRaWAN</li>
+                    <li>NB-IoT</li>
+                    <li>5G</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card" data-tilt>
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                    <div class="icon-pulse"></div>
+                </div>
+                <h3>Edge AI</h3>
+                <p>Bring machine learning to the edge with optimized models running directly on embedded hardware.</p>
+                <ul class="tech-tags">
+                    <li>TinyML</li>
+                    <li>TensorFlow Lite</li>
+                    <li>OpenMV</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="technology-stack">
+        <div class="section-header">
+            <h2>Our Embedded & IoT Tech Stack</h2>
+            <p>We work with industry-leading technologies for robust solutions</p>
+        </div>
+        
+        <div class="tech-grid">
+            <!-- Hardware Column -->
+            <div class="tech-column">
+                <h3><i class="fas fa-microchip"></i> Hardware Platforms</h3>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fab fa-raspberry-pi"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>Raspberry Pi</h4>
+                        <p>Versatile single-board computers for embedded applications</p>
+                    </div>
+                </div>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>ESP32</h4>
+                        <p>Low-power IoT chips with WiFi/BLE connectivity</p>
+                    </div>
+                </div>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>STM32</h4>
+                        <p>ARM Cortex MCUs for industrial applications</p>
+                    </div>
+                </div>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>Arduino</h4>
+                        <p>Open-source electronics platform for prototyping</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Connectivity Column -->
+            <div class="tech-column">
+                <h3><i class="fas fa-wifi"></i> Connectivity</h3>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>WiFi/Bluetooth</h4>
+                        <p>Short-range wireless communication</p>
+                    </div>
+                </div>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>LoRaWAN</h4>
+                        <p>Long-range, low-power IoT networks</p>
+                    </div>
+                </div>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>5G/NB-IoT</h4>
+                        <p>Cellular IoT connectivity</p>
+                    </div>
+                </div>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>Zigbee/Z-Wave</h4>
+                        <p>Mesh networking for smart homes</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Software Column -->
+            <div class="tech-column">
+                <h3><i class="fas fa-code"></i> Software</h3>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fab fa-linux"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>Embedded Linux</h4>
+                        <p>Custom Linux distributions for embedded</p>
+                    </div>
+                </div>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>FreeRTOS</h4>
+                        <p>Real-time operating system</p>
+                    </div>
+                </div>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>MicroPython</h4>
+                        <p>Python for microcontrollers</p>
+                    </div>
+                </div>
+                <div class="tech-card" data-tilt>
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="tech-info">
+                        <h4>InfluxDB</h4>
+                        <p>Time-series database for IoT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Ready to Build Your Smart Device?</h2>
+                <p>Let's discuss your embedded or IoT project requirements.</p>
+                <a href="#contact" class="cta-button">Start Your Project</a>
+            </div>
+            <div class="cta-visual">
+                <img src="images/motherboard.png" alt="IoT Network" class="cta-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>ORIONEX</span>
+                <p>AI-Powered Digital Solutions</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navigation</h4>
+                    <a href="#services">Services</a>
+                    <a href="#work">Work</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="link-group">
+                    <h4>Technologies</h4>
+                    <a href="ai-automation.html">AI & ML</a>
+                    <a href="web-development.html">Web Development</a>
+                    <a href="embedded-iot.html">Embedded Systems</a>
+                    <a href="#">IoT Solutions</a>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Orionex Technologies. All systems operational.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/embedded-iot.js"></script>
+</body>
+</html>

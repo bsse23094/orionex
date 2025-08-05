@@ -252,3 +252,40 @@ function setupRocketAnimation() {
     window.addEventListener('resize', updateRocketPosition);
     updateRocketPosition();
 }
+// Add this to your existing main.js file
+function setupServiceCardLinks() {
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    serviceCards.forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function() {
+            const serviceTitle = this.querySelector('h3').textContent;
+            let pageUrl = '';
+            
+            switch(serviceTitle) {
+                case 'AI & Automation':
+                    pageUrl = 'ai-automation.html';
+                    break;
+                case 'Web Development':
+                    pageUrl = 'web-development.html';
+                    break;
+                case 'Embedded & IoT':
+                    pageUrl = 'embedded-iot.html';
+                    break;
+                default:
+                    return;
+            }
+            
+            window.location.href = pageUrl;
+        });
+    });
+}
+
+// Add this to your DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', () => {
+    createStars();
+    loadServices();
+    setupMobileMenu();
+    setupServiceCardLinks(); // Add this line
+    window.addEventListener('scroll', handleScroll, { passive: true });
+});

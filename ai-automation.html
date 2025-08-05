@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Automation Services | Orionex</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/ai-automation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Starfield Background -->
+    <div class="stars" id="stars"></div>
+    <div class="twinkling" id="twinkling"></div>
+    
+    <!-- Navigation -->
+     <nav>
+        <a href="index.html" class="logo">ORIONEX</a>
+        <div class="nav-links">
+            <div class="dropdown">
+                <a href="#services" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="ai-automation.html" class="active"><i class="fas fa-robot"></i> AI & Automation</a>
+                    <a href="web-development.html" ><i class="fas fa-globe"></i> Web Development</a>
+                    <a href="embedded-iot.html"><i class="fas fa-microchip"></i> Embedded & IoT</a>
+                </div>
+            </div>
+            <a href="index.html#about">About</a>
+            <a href="index.html#process">Our Process</a>
+            <a href="index.html#technologies">Technologies</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#process">Our Process</a>
+        <a href="index.html#technologies">Technologies</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+    
+    <!-- AI Hero Section -->
+  
+    <section class="service-hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>AI & Automation Solutions</h1>
+            <p>Transform your business with intelligent automation and cutting-edge AI technologies that learn and adapt to your needs.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+        <div class="hero-visual">
+    <div class="web-visualization">
+        <div class="ai-core">
+            <div class="neural-network"></div>
+            <div class="ai-orb"></div>
+            <div class="core-logos">
+                <!-- Main Center Logo -->
+                <img src="images/ChatGPT-Logo.png" alt="OpenAI" class="core-logo main">
+                
+                <!-- Orbiting Logos - 4 logos in a square formation -->
+    <!-- Original 4 -->
+    <img src="images/deepseek-color.png" alt="DeepSeek" class="core-logo orbit">
+    <img src="images/Google_Gemini_logo.svg.png" alt="Gemini" class="core-logo orbit">
+    <img src="images/google-tensorflow-icon.webp" alt="TensorFlow" class="core-logo orbit">
+    <img src="images/pytorch-logo.png" alt="PyTorch" class="core-logo orbit">
+    
+    <!-- New Additions -->
+    <img src="images/hf-logo-with-title.svg" alt="Hugging Face" class="core-logo orbit">
+    <img src="images/langchain.png" alt="LangChain" class="core-logo orbit">
+    <img src="images/pinecone.png" alt="Pinecone" class="core-logo orbit">
+    
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</section>
+
+ <!-- AI Capabilities Section -->
+    <section class="capabilities">
+        <div class="section-header">
+            <h2>Our AI Capabilities</h2>
+            <p>Harness the power of artificial intelligence to solve complex business challenges</p>
+        </div>
+        
+        <div class="capabilities-grid">
+            <div class="capability-card" data-tilt data-tilt-scale="1.05">
+                <div class="card-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Machine Learning</h3>
+                <p>Custom ML models trained on your data to provide predictive analytics and intelligent decision-making.</p>
+                <div class="pulse-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <div class="capability-card" data-tilt data-tilt-scale="1.05">
+                <div class="card-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Process Automation</h3>
+                <p>Automate repetitive tasks and workflows to increase efficiency and reduce human error.</p>
+                <div class="pulse-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <div class="capability-card" data-tilt data-tilt-scale="1.05">
+                <div class="card-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>Conversational AI</h3>
+                <p>Intelligent chatbots and virtual assistants that understand natural language and context.</p>
+                <div class="pulse-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <div class="capability-card" data-tilt data-tilt-scale="1.05">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Predictive Analytics</h3>
+                <p>Forecast trends and behaviors to make data-driven decisions with confidence.</p>
+                <div class="pulse-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Process Section -->
+<section class="ai-process">
+    <div class="section-header">
+        <h2>Our AI Development Process</h2>
+        <p>A structured approach to delivering intelligent solutions</p>
+    </div>
+    
+    <div class="process-container">
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Problem Definition</h3>
+                    <p>Identify the specific business challenge that AI can solve</p>
+                </div>
+                <div class="step-connector"></div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Data Collection</h3>
+                    <p>Gather and prepare high-quality training datasets</p>
+                </div>
+                <div class="step-connector"></div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Model Development</h3>
+                    <p>Design and train machine learning models</p>
+                </div>
+                <div class="step-connector"></div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-icon">
+                    <i class="fas fa-vial"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Testing & Validation</h3>
+                    <p>Evaluate model performance with real-world scenarios</p>
+                </div>
+                <div class="step-connector"></div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Deployment</h3>
+                    <p>Integrate the AI solution into your existing systems</p>
+                </div>
+                <div class="step-connector"></div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <div class="step-content">
+                    <h3>Continuous Learning</h3>
+                    <p>Monitor and improve the model over time</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- AI Technologies Section -->
+   <section class="tech-showcase">
+    <div class="section-header">
+        <h2>AI Technologies We Use</h2>
+        <p>We leverage cutting-edge tools and frameworks to build powerful AI solutions</p>
+    </div>
+    
+    <div class="capabilities-grid">
+        <div class="capability-card" data-tilt data-tilt-scale="1.05">
+            <div class="card-icon">
+                <i class="fab fa-google"></i>
+            </div>
+            <h3>TensorFlow</h3>
+            <p>End-to-end open source platform for machine learning</p>
+            <div class="pulse-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="capability-card" data-tilt data-tilt-scale="1.05">
+            <div class="card-icon">
+                <i class="fas fa-fire"></i>
+            </div>
+            <h3>PyTorch</h3>
+            <p>Flexible deep learning framework for research and production</p>
+            <div class="pulse-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="capability-card" data-tilt data-tilt-scale="1.05">
+            <div class="card-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h3>OpenAI</h3>
+            <p>State-of-the-art language models and AI APIs</p>
+            <div class="pulse-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="capability-card" data-tilt data-tilt-scale="1.05">
+            <div class="card-icon">
+                <i class="fas fa-link"></i>
+            </div>
+            <h3>LangChain</h3>
+            <p>Framework for developing applications powered by language models</p>
+            <div class="pulse-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="capability-card" data-tilt data-tilt-scale="1.05">
+            <div class="card-icon">
+                <i class="fas fa-database"></i>
+            </div>
+            <h3>Pinecone</h3>
+            <p>Vector database for building high-performance AI applications</p>
+            <div class="pulse-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Case Studies Section
+    <section class="case-studies">
+        <div class="section-header">
+            <h2>AI Success Stories</h2>
+            <p>See how we've transformed businesses with our AI solutions</p>
+        </div>
+        
+        <div class="case-study-carousel">
+            <div class="case-study">
+                <div class="case-image">
+                    <div class="image-overlay"></div>
+                    <img src="images/ai-case1.jpg" alt="AI Case Study">
+                </div>
+                <div class="case-content">
+                    <h3>Intelligent Document Processing</h3>
+                    <p>Reduced document processing time by 85% for a legal firm using our custom NLP models</p>
+                    <a href="#" class="read-more">Read Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="case-study">
+                <div class="case-image">
+                    <div class="image-overlay"></div>
+                    <img src="images/ai-case2.jpg" alt="AI Case Study">
+                </div>
+                <div class="case-content">
+                    <h3>Predictive Maintenance</h3>
+                    <p>Reduced equipment downtime by 60% for a manufacturing client with our predictive models</p>
+                    <a href="#" class="read-more">Read Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="case-study">
+                <div class="case-image">
+                    <div class="image-overlay"></div>
+                    <img src="images/ai-case3.jpg" alt="AI Case Study">
+                </div>
+                <div class="case-content">
+                    <h3>Customer Service Automation</h3>
+                    <p>Automated 70% of customer inquiries for an e-commerce platform with our conversational AI</p>
+                    <a href="#" class="read-more">Read Case Study <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- CTA Section -->
+    <section class="service-cta" id="contact">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business with AI?</h2>
+                <p>Schedule a free consultation with our AI experts to discuss your project</p>
+                <a href="index.html#contact" class="cta-button">Get Started</a>
+            </div>
+            <div class="cta-graphic">
+                <div class="floating-ai-elements">
+                    <div class="ai-element" style="--x: 10%; --y: 20%; --delay: 0s;"></div>
+                    <div class="ai-element" style="--x: 80%; --y: 30%; --delay: 0.3s;"></div>
+                    <div class="ai-element" style="--x: 40%; --y: 70%; --delay: 0.6s;"></div>
+                    <div class="ai-element" style="--x: 70%; --y: 60%; --delay: 0.9s;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>ORIONEX</span>
+                <p>AI-Powered Digital Solutions</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navigation</h4>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#work">Work</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                <div class="link-group">
+                    <h4>Technologies</h4>
+                    <a href="ai-automation.html">AI & ML</a>
+                    <a href="web-development.html">Web Development</a>
+                    <a href="embedded-iot.html">Embedded Systems</a>
+                    <a href="#">IoT Solutions</a>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Orionex Technologies. All systems operational.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/ai-automation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+</body>
+</html>

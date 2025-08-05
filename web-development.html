@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Services | Orionex</title>
+    <link rel="icon" type="image/png" href="images/logo_1.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/web-development.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+</head>
+<body>
+    <!-- Starfield Background -->
+    <div class="stars" id="stars"></div>
+    <div class="twinkling" id="twinkling"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">ORIONEX</a>
+        <div class="nav-links">
+            <div class="dropdown">
+                <a href="#services" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="ai-automation.html"><i class="fas fa-robot"></i> AI & Automation</a>
+                    <a href="web-development.html" class="active"><i class="fas fa-globe"></i> Web Development</a>
+                    <a href="embedded-iot.html"><i class="fas fa-microchip"></i> Embedded & IoT</a>
+                </div>
+            </div>
+            <a href="index.html#about">About</a>
+            <a href="index.html#process">Our Process</a>
+            <a href="index.html#technologies">Technologies</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#process">Our Process</a>
+        <a href="index.html#technologies">Technologies</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Web Development Solutions</h1>
+                <p>Building high-performance, scalable web applications with cutting-edge technologies and modern architectures.</p>
+                <a href="index.html#contact" class="cta-button">Get Started</a>
+            </div>
+            <div class="hero-visual">
+                <div class="web-visualization">
+                    <div class="browser-window">
+                        <div class="browser-header">
+                            <div class="browser-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="browser-content">
+                            <div class="code-editor">
+    <div class="editor-header">
+        <span class="file-name">app.component.ts</span> <!-- Changed filename -->
+    </div>
+    <div class="editor-content">
+        <pre><code>@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'client-app';
+}</code></pre>
+    </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details -->
+    <section class="service-details">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Web Development Expertise</h2>
+                <p>We create responsive, SEO-optimized web applications that deliver exceptional user experiences.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Pixel-perfect designs that adapt seamlessly to all devices and screen sizes.</p>
+                    <div class="tech-badges">
+                        <span>CSS3</span>
+                        <span>Flexbox</span>
+                        <span>Grid</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Performance Optimization</h3>
+                    <p>Lightning-fast load times with code splitting, lazy loading, and efficient bundling.</p>
+                    <div class="tech-badges">
+                        <span>Webpack</span>
+                        <span>Vite</span>
+                        <span>Turbo</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Security First</h3>
+                    <p>Enterprise-grade security with proper authentication, authorization, and data protection.</p>
+                    <div class="tech-badges">
+                        <span>JWT</span>
+                        <span>OAuth</span>
+                        <span>CORS</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Full-Stack Solutions</h3>
+                    <p>End-to-end development from frontend UI to backend APIs and database architecture.</p>
+                    <div class="tech-badges">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="tech-stack">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Web Development Stack</h2>
+                <p>We leverage the best technologies to build robust, scalable web applications.</p>
+            </div>
+            
+            <div class="tech-tabs">
+                <div class="tab-header">
+                    <button class="tab-btn active" data-tab="frontend">Frontend</button>
+                    <button class="tab-btn" data-tab="backend">Backend</button>
+                    <button class="tab-btn" data-tab="devops">DevOps</button>
+                </div>
+                
+                <div class="tab-content active" id="frontend">
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <div class="tech-logo">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <h4>React</h4>
+                            <p>Component-based UI library for building interactive interfaces</p>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-logo">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <h4>Next.js</h4>
+                            <p>React framework for server-side rendering and static generation</p>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-logo">
+                                 <i class="fab fa-angular"></i> <!-- Changed from react to angular -->
+            </div>
+            <h4>Angular</h4> <!-- Changed from React to Angular -->
+            <p>Comprehensive framework for building enterprise-grade applications</p> <!-- Updated description -->
+        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="backend">
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <div class="tech-logo">
+                                <i class="fab fa-node"></i>
+                            </div>
+                            <h4>Node.js</h4>
+                            <p>JavaScript runtime for building scalable network applications</p>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-logo">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4>Golang</h4>
+                            <p>High-performance language for backend services</p>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-logo">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4>PostgreSQL</h4>
+                            <p>Powerful open-source relational database system</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="devops">
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <div class="tech-logo">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <h4>Docker</h4>
+                            <p>Containerization platform for consistent deployments</p>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-logo">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <h4>AWS</h4>
+                            <p>Cloud platform for scalable hosting and services</p>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-logo">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <h4>CI/CD</h4>
+                            <p>Automated deployment pipelines for rapid iteration</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <!-- <section class="case-studies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Web Development Case Studies</h2>
+                <p>Explore some of our recent web development projects and success stories.</p>
+            </div>
+            
+            <div class="case-grid">
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="images/ecommerce-web.jpg" alt="E-commerce Platform">
+                        <div class="case-overlay">
+                            <h3>E-commerce Platform</h3>
+                            <p>Scalable online store with personalized recommendations</p>
+                            <a href="#" class="case-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="images/saas-dashboard.jpg" alt="SAAS Dashboard">
+                        <div class="case-overlay">
+                            <h3>SAAS Dashboard</h3>
+                            <p>Real-time analytics and data visualization</p>
+                            <a href="#" class="case-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="images/healthcare-portal.jpg" alt="Healthcare Portal">
+                        <div class="case-overlay">
+                            <h3>Healthcare Portal</h3>
+                            <p>HIPAA-compliant patient management system</p>
+                            <a href="#" class="case-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <h2>Ready to Build Your Next Web Application?</h2>
+            <p>Let's discuss how we can bring your vision to life with cutting-edge web technologies.</p>
+            <a href="index.html#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>ORIONEX</span>
+                <p>AI-Powered Digital Solutions</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navigation</h4>
+                    <a href="#services">Services</a>
+                    <a href="#work">Work</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="link-group">
+                    <h4>Technologies</h4>
+                    <a href="ai-automation.html">AI & ML</a>
+                    <a href="web-development.html">Web Development</a>
+                    <a href="embedded-iot.html">Embedded Systems</a>
+                    <a href="#">IoT Solutions</a>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Orionex Technologies. All systems operational.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/web-development.js"></script>
+</body>
+</html>
