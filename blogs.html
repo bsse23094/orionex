@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orionex | AI Blog</title>
+    <!-- Standard Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo_1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo_1.png">
+    <!-- Apple Devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo_1.png">
+    <!-- For older browsers -->
+    <link rel="shortcut icon" href="images/logo_1.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Starfield Background -->
+    <div class="stars" id="stars"></div>
+    <div class="twinkling" id="twinkling"></div>
+    
+    <nav>
+        <a href="index.html" class="logo">ORIONEX</a>
+        <div class="nav-links">
+            <a href="index.html#services">Services</a>
+            <a href="index.html#work">Work</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#process">Our Process</a>
+            <a href="index.html#technologies">Technologies</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="blog.html" class="active">Blog</a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#process">Our Process</a>
+        <a href="index.html#technologies">Technologies</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="blog.html">Blog</a>
+    </div>  
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="blog-hero-content">
+            <h1>AI Insights & Knowledge</h1>
+            <p>Explore our latest articles on AI, LLMs, and cutting-edge technologies that power modern applications.</p>
+        </div>
+    </section>
+    
+    <!-- Blog Content Section -->
+    <section class="blog-container">
+        <div class="blog-sidebar">
+            <div class="sidebar-widget">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#llm" class="category-link" data-category="llm">LLM Fundamentals</a></li>
+                    <li><a href="#rag" class="category-link" data-category="rag">RAG Systems</a></li>
+                    <li><a href="#fine-tuning" class="category-link" data-category="fine-tuning">Fine-Tuning</a></li>
+                    <li><a href="#prompt-engineering" class="category-link" data-category="prompt-engineering">Prompt Engineering</a></li>
+                    <li><a href="#vector-db" class="category-link" data-category="vector-db">Vector Databases</a></li>
+                    <li><a href="#langchain" class="category-link" data-category="langchain">LangChain</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-widget">
+                <h3>Popular Posts</h3>
+                <ul>
+                    <li><a href="#stop-chasing-model-training" class="post-link">Stop Chasing Model Training</a></li>
+                    <li><a href="#what-is-llm" class="post-link">What is an LLM?</a></li>
+                    <li><a href="#what-is-rag" class="post-link">What is RAG?</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="blog-posts">
+            <!-- Blog Post 1 -->
+            <article class="blog-post" id="stop-chasing-model-training" data-categories="llm,rag,vector-db,langchain">
+                <div class="post-header">
+                    <h2>Stop Chasing Model Training. Start Learning LMS and LM Integration.</h2>
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar-alt"></i> June 15, 2025</span>
+                        <span class="post-category"><i class="fas fa-tag"></i> LLM, RAG, Vector DB, LangChain</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p class="post-excerpt">Right now, too many developers are stuck on the idea that "real AI" means training a model from scratch. But let's be honest - you don't need a GPU cluster or to burn weeks on data cleaning. The game has changed...</p>
+                    <div class="post-full-content">
+                        <p>Right now, too many developers are stuck on the idea that "real AI" means training a model from scratch.</p>
+                        <p>But let's be honest...</p>
+                        <ul>
+                            <li>You don't need a GPU cluster.</li>
+                            <li>You don't need to fine-tune a billion-parameter model.</li>
+                            <li>You don't need to burn weeks on data cleaning just to get subpar results.</li>
+                        </ul>
+                        <p>The game has changed.</p>
+                        <p>We already have powerful open and closed-source LMs (GPT, Claude, LLaMA, Mistral, etc.) that are battle-tested.</p>
+                        <p>What you need to master is:</p>
+                        <ul>
+                            <li>LMS (Language Model Systems) – tools like LangChain, LlamaIndex, and Haystack</li>
+                            <li>RAG pipelines – integrate your own data with an existing model</li>
+                            <li>Vector databases – FAISS, Pinecone, Weaviate</li>
+                            <li>API integration – prompt engineering, chaining, and memory systems</li>
+                            <li>Deployment – build AI copilots, smart assistants, and intelligent dashboards</li>
+                        </ul>
+                        <p>Training a model is research.</p>
+                        <p>Using a model is impact.</p>
+                        <p>The companies hiring AI talent aren't looking for the next LLM.</p>
+                        <p>They're looking for someone who can use one to solve real business problems.</p>
+                        <p>If you're learning ML in 2025, skip the obsession with training.</p>
+                        <p>Focus on building products with models. That's where the future is.</p>
+                    </div>
+                </div>
+                <button class="read-more">Read Full Article</button>
+            </article>
+            
+            <!-- Blog Post 2 -->
+            <article class="blog-post" id="what-is-llm" data-categories="llm">
+                <div class="post-header">
+                    <h2>What is an LLM?</h2>
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar-alt"></i> June 10, 2025</span>
+                        <span class="post-category"><i class="fas fa-tag"></i> LLM</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p class="post-excerpt">LLM stands for Large Language Model. A large language model is a neural network trained on massive amounts of text data to understand and generate human language...</p>
+                    <div class="post-full-content">
+                        <p>LLM = Large Language Model</p>
+                        <p>A large language model is a neural network trained on massive amounts of text data to understand and generate human language.</p>
+                        <p>Think GPT-4, Claude, Mistral, LLaMA, Gemini.</p>
+                        <p>What can an LLM do?</p>
+                        <ul>
+                            <li>Answer questions</li>
+                            <li>Write essays, emails, or code</li>
+                            <li>Summarize documents</li>
+                            <li>Translate languages</li>
+                            <li>Even write poetry</li>
+                        </ul>
+                        <p>You don't need to train one.</p>
+                        <p>You use one — via API (OpenAI, Anthropic) or open-source weights (HuggingFace, Ollama, etc.)</p>
+                        <p>If you're building AI products in 2025, knowing how to use LLMs is 10x more important than knowing how to train one.</p>
+                    </div>
+                </div>
+                <button class="read-more">Read Full Article</button>
+            </article>
+            
+            <!-- Blog Post 3 -->
+            <article class="blog-post" id="what-is-rag" data-categories="rag,vector-db">
+                <div class="post-header">
+                    <h2>What is RAG? (Retrieval-Augmented Generation)</h2>
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar-alt"></i> June 5, 2025</span>
+                        <span class="post-category"><i class="fas fa-tag"></i> RAG, Vector DB</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p class="post-excerpt">RAG stands for Retrieval-Augmented Generation. LLMs are powerful, but they don't have access to your data. RAG fixes that by combining retrieval of relevant information with generation...</p>
+                    <div class="post-full-content">
+                        <p>RAG = Retrieval-Augmented Generation</p>
+                        <p>LLMs are powerful, but they don't have access to your data.</p>
+                        <p>RAG fixes that.</p>
+                        <p>How it works:</p>
+                        <ol>
+                            <li>You upload your docs (PDFs, Notion, CSV, etc.)</li>
+                            <li>The system breaks them into chunks & stores them in a vector DB (like FAISS or Pinecone)</li>
+                            <li>When the user asks a question, the system retrieves the most relevant chunks</li>
+                            <li>It passes them into the LLM to generate a precise, context-aware answer</li>
+                        </ol>
+                        <p>Why use RAG:</p>
+                        <ul>
+                            <li>Real-time updates</li>
+                            <li>No fine-tuning required</li>
+                            <li>Cheap, scalable, and domain-aware</li>
+                        </ul>
+                        <p>Tools: LangChain, LlamaIndex, Haystack, Weaviate</p>
+                        <p>RAG is how you turn an LLM into a useful assistant for your business.</p>
+                    </div>
+                </div>
+                <button class="read-more">Read Full Article</button>
+            </article>
+            
+            <!-- Blog Post 4 -->
+            <article class="blog-post" id="what-is-fine-tuning" data-categories="fine-tuning">
+                <div class="post-header">
+                    <h2>What is Fine-Tuning?</h2>
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar-alt"></i> May 28, 2025</span>
+                        <span class="post-category"><i class="fas fa-tag"></i> Fine-Tuning</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p class="post-excerpt">Fine-Tuning means teaching an LLM a specific behavior or domain knowledge. When your base model isn't enough and you need it to follow very specific instructions or understand technical jargon...</p>
+                    <div class="post-full-content">
+                        <p>Fine-Tuning = Teaching an LLM a specific behavior or domain knowledge</p>
+                        <p>When your base model isn't enough — and you need it to:</p>
+                        <ul>
+                            <li>Follow very specific instructions</li>
+                            <li>Match your company's tone</li>
+                            <li>Understand legal, medical, or technical jargon</li>
+                        </ul>
+                        <p>That's when you fine-tune.</p>
+                        <p>Types of Fine-Tuning:</p>
+                        <ul>
+                            <li>Full fine-tuning (costly, full retrain)</li>
+                            <li>LoRA / QLoRA (lightweight, efficient tuning)</li>
+                            <li>Instruction tuning (teach the model how to follow prompts better)</li>
+                        </ul>
+                        <p>But here's the catch:</p>
+                        <p>80% of use cases don't need fine-tuning.</p>
+                        <p>Most problems are solved better with RAG or prompt engineering.</p>
+                        <p>Fine-tuning is powerful, but use it strategically.</p>
+                    </div>
+                </div>
+                <button class="read-more">Read Full Article</button>
+            </article>
+            
+            <!-- Blog Post 5 -->
+            <article class="blog-post" id="what-is-prompt-engineering" data-categories="prompt-engineering">
+                <div class="post-header">
+                    <h2>What is Prompt Engineering?</h2>
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar-alt"></i> May 20, 2025</span>
+                        <span class="post-category"><i class="fas fa-tag"></i> Prompt Engineering</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p class="post-excerpt">Prompt Engineering is the art of talking to LLMs effectively. It's not what the model knows, it's how you ask. Want better outputs, predictable responses, or the model to follow steps? That's where prompt engineering comes in...</p>
+                    <div class="post-full-content">
+                        <p>Prompt Engineering = The art of talking to LLMs effectively</p>
+                        <p>It's not what the model knows, it's how you ask.</p>
+                        <p>Want better outputs?</p>
+                        <p>Want predictable responses?</p>
+                        <p>Want the model to follow steps?</p>
+                        <p>That's where prompt engineering comes in.</p>
+                        <p>Examples:</p>
+                        <ul>
+                            <li>"Summarize this in 3 bullet points for a 10-year-old."</li>
+                            <li>"You are a startup advisor. Give me 5 risks for launching this SaaS."</li>
+                            <li>"Here's JSON. Extract the invoice total."</li>
+                        </ul>
+                        <p>Tips:</p>
+                        <ul>
+                            <li>Use role-based prompts ("You are a...")</li>
+                            <li>Be specific</li>
+                            <li>Chain instructions step by step</li>
+                        </ul>
+                        <p>Prompt engineering is your most important skill if you're using LLMs without writing code.</p>
+                    </div>
+                </div>
+                <button class="read-more">Read Full Article</button>
+            </article>
+            
+            <!-- Blog Post 6 -->
+            <article class="blog-post" id="what-is-vector-database" data-categories="vector-db,rag">
+                <div class="post-header">
+                    <h2>What is a Vector Database?</h2>
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar-alt"></i> May 15, 2025</span>
+                        <span class="post-category"><i class="fas fa-tag"></i> Vector DB, RAG</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p class="post-excerpt">LLMs need memory. That's where vector DBs come in. When you want to store and retrieve chunks of text based on meaning — not keywords — you use a vector database. Here's how it works and why it's important for AI applications...</p>
+                    <div class="post-full-content">
+                        <p>LLMs need memory. That's where vector DBs come in.</p>
+                        <p>When you want to store and retrieve chunks of text based on meaning — not keywords — you use a vector database.</p>
+                        <p>Here's how it works:</p>
+                        <ol>
+                            <li>Text is converted into embeddings (numeric vectors)</li>
+                            <li>Stored in a vector DB like FAISS, Pinecone, Weaviate, or Qdrant</li>
+                            <li>When a user asks something, it finds the closest vector (i.e. semantically related text)</li>
+                        </ol>
+                        <p>Use cases:</p>
+                        <ul>
+                            <li>RAG pipelines</li>
+                            <li>Semantic search</li>
+                            <li>Document Q&A</li>
+                            <li>Chat over large datasets</li>
+                        </ul>
+                        <p>Tools:</p>
+                        <p>LangChain + FAISS</p>
+                        <p>LlamaIndex + Qdrant</p>
+                        <p>Haystack + Weaviate</p>
+                        <p>Forget keyword search. Vector DBs power semantic understanding.</p>
+                    </div>
+                </div>
+                <button class="read-more">Read Full Article</button>
+            </article>
+            
+            <!-- Blog Post 7 -->
+            <article class="blog-post" id="what-is-langchain" data-categories="langchain,llm,rag">
+                <div class="post-header">
+                    <h2>What is LangChain?</h2>
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar-alt"></i> May 10, 2025</span>
+                        <span class="post-category"><i class="fas fa-tag"></i> LangChain, LLM, RAG</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p class="post-excerpt">LangChain is a framework for building LLM-powered applications. Think of LangChain as React.js — but for Language Models. Instead of manually handling prompts, context, memory, and chains, LangChain gives you pre-built modules to connect everything...</p>
+                    <div class="post-full-content">
+                        <p>LangChain = Framework for building LLM-powered apps</p>
+                        <p>Think of LangChain as React.js — but for Language Models.</p>
+                        <p>Instead of manually handling prompts, context, memory, and chains, LangChain gives you pre-built modules to connect everything:</p>
+                        <ul>
+                            <li>LLMs (OpenAI, Cohere, Anthropic, etc.)</li>
+                            <li>Vector DBs</li>
+                            <li>File loaders (PDFs, CSVs, Notion)</li>
+                            <li>Tools & agents</li>
+                            <li>Memory & context</li>
+                        </ul>
+                        <p>Use LangChain to:</p>
+                        <ul>
+                            <li>Build chatbots with memory</li>
+                            <li>Implement RAG pipelines</li>
+                            <li>Automate document workflows</li>
+                            <li>Chain multiple prompts together (reasoning, search, generate)</li>
+                        </ul>
+                        <p>LangChain makes building real AI apps 10x faster.</p>
+                    </div>
+                </div>
+                <button class="read-more">Read Full Article</button>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>ORIONEX</span>
+                <p>AI-Powered Digital Solutions</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Navigation</h4>
+                    <a href="index.html#services">Services</a>
+                    <a href="index.html#work">Work</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#contact">Contact</a>
+                    <a href="blog.html">Blog</a>
+                </div>
+                <div class="link-group">
+                    <h4>Technologies</h4>
+                    <a href="#">AI & ML</a>
+                    <a href="#">Web Development</a>
+                    <a href="#">Embedded Systems</a>
+                    <a href="#">IoT Solutions</a>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Orionex Technologies. All systems operational.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/blogs.js"></script>
+</body>
+</html>
