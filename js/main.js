@@ -281,8 +281,36 @@ function setupServiceCardLinks() {
     });
 }
 
+// Mobile Safari viewport adjustment
+function adjustViewportForIOS() {
+    const hero = document.querySelector('.service-hero');
+    if (!hero) return;
+    
+    // First try with vh units
+    hero.style.height = '100vh';
+    
+    // If still cropped (iOS), use window.innerHeight
+    if (hero.offsetHeight > window.innerHeight) {
+        hero.style.height = window.innerHeight + 'px';
+    }
+    
+    // Add transform to force layer creation
+    hero.style.transform = 'translateZ(0)';
+}
+
+// Run initially and on orientation changes
+document.addEventListener('DOMContentLoaded', function() {
+    adjustViewportForIOS();
+    window.addEventListener('resize', adjustViewportForIOS);
+    window.addEventListener('orientationchange', adjustViewportForIOS);
+    
+    // Delay slightly to ensure DOM is ready
+    setTimeout(adjustViewportForIOS, 100);
+});
+
 // Add this to your DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', () => {
+    adjustViewportForIOS();
     createStars();
     loadServices();
     setupMobileMenu();

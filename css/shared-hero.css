@@ -1,0 +1,114 @@
+/* shared-hero.css */
+/* Shared Hero Section Styles for all service pages */
+
+/* Base Hero Styles */
+.service-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 7rem 5% 4rem;
+    min-height: 90vh;
+    box-sizing: border-box;
+}
+
+/* iOS Viewport Fix */
+@supports (-webkit-touch-callout: none) {
+    .service-hero {
+        min-height: -webkit-fill-available;
+        height: 100vh;
+        height: -webkit-fill-available;
+    }
+}
+
+/* Hero Content Layout */
+.hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+    z-index: 2;
+}
+
+/* Hero Text Styles */
+.hero-text h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(to right, var(--star-white), var(--electric-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    color: var(--metallic);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-visual {
+        order: -1;
+        margin-bottom: 3rem;
+    }
+    
+    .hero-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-hero {
+        padding: 6rem 5% 3rem;
+        min-height: auto;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* iPhone & Mobile Safari Specific Styles */
+@media (max-width: 480px) {
+    .service-hero {
+        padding-top: 5.5rem; /* Extra space for fixed navbar */
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-text p {
+        font-size: 1rem;
+    }
+    
+    /* iOS specific adjustments */
+    @supports (-webkit-touch-callout: none) {
+        .service-hero {
+            padding-top: calc(5.5rem + env(safe-area-inset-top));
+        }
+    }
+}
+
+/* Very small devices */
+@media (max-width: 390px) {
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content {
+        gap: 2rem;
+    }
+}
