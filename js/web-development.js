@@ -1,45 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Tab functionality
 
+    function setCustomVhUnit() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh * 100}px`);
+}
+
+window.addEventListener('resize', setCustomVhUnit);
+window.addEventListener('load', setCustomVhUnit);
+
+
      document.addEventListener('DOMContentLoaded', function() {
     // Enhanced iOS viewport adjustment
     function adjustViewportForIOS() {
-        const hero = document.querySelector('.service-hero');
-        const navbar = document.querySelector('nav');
-        if (!hero || !navbar) return;
-        
-        // Get navbar height
-        const navbarHeight = navbar.offsetHeight;
-        
-        // Calculate safe area insets for iOS
-        const safeAreaTop = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--sat')) || 
-                           window.innerHeight - window.visualViewport.height || 
-                           0;
-        
-        // Set CSS custom property for safe area
-        document.documentElement.style.setProperty('--sat', `${safeAreaTop}px`);
-        
-        // Calculate effective viewport height
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.clientHeight;
-        const effectiveVH = Math.min(windowHeight, documentHeight);
-        
-        // Apply heights
-        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-            // Use fixed positioning and padding for iOS
-            hero.style.minHeight = `calc(${effectiveVH}px - ${navbarHeight}px)`;
-            hero.style.paddingTop = `${navbarHeight}px`;
-            hero.style.boxSizing = 'border-box';
-            
-            // Apply safe area insets
-            hero.style.paddingTop = `calc(${navbarHeight}px + env(safe-area-inset-top))`;
-        } else {
-            // Standard devices
-            hero.style.minHeight = `calc(100vh - ${navbarHeight}px)`;
-            hero.style.paddingTop = '0';
-        }
-    }
+    const hero = document.querySelector('.service-hero');
+    const navbar = document.querySelector('nav');
+    if (!hero || !navbar) return;
 
+    const navbarHeight = navbar.offsetHeight;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+    // Update custom CSS variable for vh units
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh * 100}px`);
+
+    if (isIOS) {
+        const safeTop = window.visualViewport?.offsetTop || 0;
+        hero.style.paddingTop = `calc(${navbarHeight}px + ${safeTop}px + env(safe-area-inset-top))`;
+        hero.style.minHeight = `calc(100vh - ${navbarHeight}px - ${safeTop}px)`;
+    } else {
+        hero.style.paddingTop = `${navbarHeight}px`;
+        hero.style.minHeight = `calc(100vh - ${navbarHeight}px)`;
+    }
+}
     // Run on load and orientation change
     window.addEventListener('load', adjustViewportForIOS);
     window.addEventListener('resize', adjustViewportForIOS);
