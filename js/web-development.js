@@ -2,6 +2,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Tab functionality
 
 
+     function adjustViewportForIOS() {
+        const hero = document.querySelector('.hero-section');
+        if (!hero) return;
+        
+        // First try with vh units
+        hero.style.height = '100vh';
+        
+        // If still cropped (iOS), use window.innerHeight
+        if (hero.offsetHeight > window.innerHeight) {
+            hero.style.height = window.innerHeight + 'px';
+        }
+        
+        // Add transform to force layer creation
+        hero.style.transform = 'translateZ(0)';
+    }
+    
+    // Run initially and on orientation changes
+    adjustViewportForIOS();
+
 
     let lastScroll = 0;
 const navbar = document.querySelector('nav');

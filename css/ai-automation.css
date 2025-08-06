@@ -20,6 +20,11 @@
     overflow: hidden;
 }
 
+html, body {
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: auto;
+}
+
 .service-hero .hero-content {
     max-width: 1400px;
     margin: 0 auto;

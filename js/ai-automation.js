@@ -2,6 +2,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize starfield
     createStars();
     
+     function adjustViewportForIOS() {
+        const hero = document.querySelector('.hero-section');
+        if (!hero) return;
+        
+        // First try with vh units
+        hero.style.height = '100vh';
+        
+        // If still cropped (iOS), use window.innerHeight
+        if (hero.offsetHeight > window.innerHeight) {
+            hero.style.height = window.innerHeight + 'px';
+        }
+        
+        // Add transform to force layer creation
+        hero.style.transform = 'translateZ(0)';
+    }
+    
+    // Run initially and on orientation changes
+    adjustViewportForIOS();
+
+
     setupMobileMenu();
     window.addEventListener('scroll', handleScroll, { passive: true });
     animateAIElements();
@@ -9,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initVanillaTilt();
     setActiveNavItem();
 });
+
+
 
 function initAILogoInteraction() {
     const aiCore = document.querySelector('.ai-core');

@@ -8,6 +8,26 @@
     overflow: hidden;
 }
 
+html, body {
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: auto;
+}
+
+.hero-section {
+    height: 100vh;
+    height: -webkit-fill-available; /* For mobile browsers */
+    min-height: -webkit-fill-available;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Safari-specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .hero-section {
+        height: -webkit-fill-available;
+    }
+}
+
 /* Navbar hide/show on scroll */
 nav {
     position: fixed;
