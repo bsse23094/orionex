@@ -1,11 +1,171 @@
-/* Web Development Service Page Styles */
+/* Web Development Service Page Styles - Mobile Safari Fixes */
 .service-hero {
-    padding: 12rem 5% 8rem;
-    min-height: 90vh;
+    padding: 12rem 5% 5rem;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* iOS Safari specific viewport fixes */
+@supports (-webkit-touch-callout: none) {
+    .service-hero {
+        min-height: -webkit-fill-available;
+        height: -webkit-fill-available;
+        padding-top: calc(12rem + env(safe-area-inset-top));
+    }
+}
+
+/* General mobile fixes */
+@media (max-width: 768px) {
+    .service-hero {
+        padding: 8rem 5% 3rem;
+        min-height: auto;
+        height: auto;
+    }
+    
+    .hero-content {
+        display: flex !important;
+        flex-direction: column;
+        gap: 2rem !important;
+    }
+    
+    .hero-text {
+        order: 2;
+        text-align: center;
+        padding-top: 0;
+    }
+    
+    .hero-visual {
+        order: 1;
+        margin-bottom: 2rem;
+        perspective: none;
+        transform-style: flat;
+    }
+    
+    .service-hero .hero-text h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+    
+    .service-hero .hero-text p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .web-visualization {
+        max-width: 100%;
+        margin: 0 auto;
+        perspective: none;
+        animation: none;
+    }
+    
+    .browser-window {
+        transform: none !important;
+        width: 100% !important;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+/* Small mobile devices (320px - 480px) */
+@media (max-width: 480px) {
+    .service-hero {
+        padding: 6rem 5% 2rem;
+    }
+    
+    .service-hero .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .service-hero .hero-text p {
+        font-size: 1rem;
+    }
+    
+    .browser-window {
+        transform: none;
+    }
+    
+    /* Disable complex animations on small devices */
+    .feature-card,
+    .tech-item {
+        transform: none !important;
+    }
+    
+    .feature-card:hover,
+    .tech-item:hover {
+        transform: none !important;
+        box-shadow: 0 5px 15px rgba(0, 209, 255, 0.2);
+    }
+}
+
+/* iPhone notch adjustments */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
+       only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
+       only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3),
+       only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3),
+       only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+    .service-hero {
+        padding-top: calc(8rem + env(safe-area-inset-top));
+    }
+}
+
+/* Disable 3D effects on touch devices */
+@media (hover: none) {
+    .web-visualization {
+        perspective: none;
+        transform-style: flat;
+    }
+    
+    .browser-window {
+        transform: none !important;
+    }
+    
+    .browser-window:hover {
+        transform: none !important;
+    }
+    
+    .feature-card,
+    .tech-item {
+        transform: none !important;
+    }
+    
+    .feature-card:hover,
+    .tech-item:hover {
+        transform: none !important;
+    }
+}
+
+/* Safari-specific performance optimizations */
+@supports (-webkit-touch-callout: none) {
+    .service-hero {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Force hardware acceleration */
+    .hero-content {
+        -webkit-transform: translateZ(0);
+    }
+    
+    /* Disable perspective on older iOS devices */
+    .web-visualization {
+        -webkit-perspective: none;
+        -webkit-transform-style: flat;
+    }
+    
+    /* Fix for font rendering */
+    body {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+    
+    /* Prevent text size adjustment */
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
 }
 
 html, body {
