@@ -20,7 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Run initially and on orientation changes
     adjustViewportForIOS();
-
+    window.addEventListener('resize', adjustViewportForIOS);
+    window.addEventListener('orientationchange', adjustViewportForIOS);
+    
+    // Delay slightly to ensure DOM is ready
+    setTimeout(adjustViewportForIOS, 100);
 
     let lastScroll = 0;
 const navbar = document.querySelector('nav');
