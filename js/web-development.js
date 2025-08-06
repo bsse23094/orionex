@@ -1,30 +1,35 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Tab functionality
 
-    function adjustViewportForIOS() {
-    const hero = document.querySelector('.service-hero');
-    if (!hero) return;
-    
-    // First try with vh units
-    hero.style.height = '100vh';
-    
-    // If iOS, use more reliable units
-    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-        hero.style.height = '100%';
-        hero.style.minHeight = '100%';
-        document.documentElement.style.height = '100%';
-        document.body.style.height = '100%';
+     function adjustViewportForIOS() {
+        const hero = document.querySelector('.service-hero');
+        const navbar = document.querySelector('nav');
+        if (!hero || !navbar) return;
+        
+        // Get navbar height
+        const navbarHeight = navbar.offsetHeight;
+        
+        // First try with calc units
+        hero.style.minHeight = `calc(100vh - ${navbarHeight}px)`;
+        
+        // If iOS, use more reliable units
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            hero.style.minHeight = `calc(100% - ${navbarHeight}px)`;
+            hero.style.paddingTop = `${navbarHeight}px`;
+            document.documentElement.style.height = '100%';
+            document.body.style.height = '100%';
+        }
+        
+        // Add transform to force layer creation
+        hero.style.transform = 'translateZ(0)';
     }
+
+    // Run on load and orientation change
+    window.addEventListener('load', adjustViewportForIOS);
+    window.addEventListener('resize', adjustViewportForIOS);
+    window.addEventListener('orientationchange', adjustViewportForIOS);
+
     
-    // Add transform to force layer creation
-    hero.style.transform = 'translateZ(0)';
-}
-
-// Run on load and orientation change
-window.addEventListener('load', adjustViewportForIOS);
-window.addEventListener('resize', adjustViewportForIOS);
-window.addEventListener('orientationchange', adjustViewportForIOS);
-
     let lastScroll = 0;
 const navbar = document.querySelector('nav');
 const scrollThreshold = 5; // How many pixels to scroll before triggering

@@ -726,7 +726,9 @@ nav.nav-hidden {
 @media (max-width: 433px) {
     .service-hero {
         padding: 6rem 4% 3rem;
+         padding-top: 6rem !important;
         min-height: auto;
+        height: auto;
         perspective: none; /* Reset perspective for performance */
     }
 
@@ -747,11 +749,25 @@ nav.nav-hidden {
 
     /* Optimized 3D Effects */
     .web-visualization {
-        perspective: 500px; /* Reduced for mobile */
+        perspective: none !important; /* Reduced for mobile */
         transform-style: preserve-3d;
         animation: float 6s ease-in-out infinite;
         margin: 0 auto;
         max-width: 320px;
+        width: 100%;
+    }
+
+
+    .browser-window {
+        transform: none !important;
+        width: 100% !important;
+        margin: 0 auto;
+    }
+    
+    .hero-content {
+        display: flex !important;
+        flex-direction: column;
+        gap: 2rem !important;
     }
 
     .browser-window {
@@ -836,6 +852,16 @@ nav.nav-hidden {
         font-size: 0.75rem;
     }
 
+    .hero-text {
+        order: 2;
+        text-align: center;
+    }
+    
+    .hero-visual {
+        order: 1;
+        margin-bottom: 2rem;
+    }
+
     .tech-item {
         padding: 1.2rem;
     }
@@ -845,6 +871,23 @@ nav.nav-hidden {
         height: 50px;
         font-size: 1.5rem;
     }
+
+    .code-editor {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .editor-content pre {
+        font-size: 0.8rem;
+        white-space: pre;
+        width: max-content;
+    }
+    
+    .editor-header {
+        padding: 0.5rem;
+    }
+
+    
 
     /* Safari-specific 3D Optimizations */
     @supports (-webkit-touch-callout: none) {
@@ -895,5 +938,133 @@ nav.nav-hidden {
     .feature-card:hover,
     .tech-item:hover {
         transform: translateY(-3px) translateZ(10px);
+    }
+}
+
+/* Safari-specific fixes for hero section */
+@supports (-webkit-touch-callout: none) {
+    .service-hero {
+        min-height: -webkit-fill-available;
+        padding-top: 6rem !important;
+        padding-bottom: 3rem;
+    }
+}
+
+/* Mobile-specific hero section fixes */
+@media (max-width: 768px) {
+    .service-hero {
+        padding: 6rem 5% 3rem;
+        min-height: auto;
+        height: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-content {
+        display: flex !important;
+        flex-direction: column;
+        gap: 2rem !important;
+    }
+
+    .hero-text {
+        order: 2;
+        text-align: center;
+        padding-top: 0;
+    }
+
+    .hero-visual {
+        order: 1;
+        margin-bottom: 2rem;
+    }
+
+    .service-hero .hero-text h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+
+    .service-hero .hero-text p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .web-visualization {
+        max-width: 100%;
+        margin: 0 auto;
+        perspective: none;
+    }
+
+    .browser-window {
+        transform: rotateY(-5deg) rotateX(2deg) scale(0.95);
+    }
+}
+
+/* Extra small devices (320px - 480px) */
+@media (max-width: 480px) {
+    .service-hero {
+        padding: 5rem 5% 2rem;
+    }
+
+    .service-hero .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .service-hero .hero-text p {
+        font-size: 0.95rem;
+    }
+
+    .browser-window {
+        transform: none;
+    }
+}
+
+/* iPhone X and similar */
+@media only screen 
+    and (device-width: 375px) 
+    and (device-height: 812px) 
+    and (-webkit-device-pixel-ratio: 3) {
+    .service-hero {
+        padding-top: 5rem !important;
+    }
+}
+
+/* iPhone 8 and similar */
+@media only screen 
+    and (device-width: 375px) 
+    and (device-height: 667px) 
+    and (-webkit-device-pixel-ratio: 2) {
+    .service-hero {
+        padding-top: 5rem !important;
+    }
+}
+
+/* iPhone 5/SE */
+@media only screen 
+    and (device-width: 320px) 
+    and (device-height: 568px) 
+    and (-webkit-device-pixel-ratio: 2) {
+    .service-hero {
+        padding-top: 4.5rem !important;
+    }
+    
+    .service-hero .hero-text h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Safari-specific 3D optimizations */
+@supports (-webkit-touch-callout: none) {
+    .service-hero {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .web-visualization {
+        -webkit-transform-style: preserve-3d;
+        -webkit-perspective: 500px;
+    }
+    
+    .browser-window {
+        -webkit-transform: translate3d(0,0,0);
+        -webkit-backface-visibility: hidden;
     }
 }
