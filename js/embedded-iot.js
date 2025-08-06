@@ -2,6 +2,58 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize starfield
     createStars();
     
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    if (menuToggle && mobileMenu && closeMenu) {
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on links
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    let lastScroll = 0;
+const navbar = document.querySelector('nav');
+const scrollThreshold = 5; // How many pixels to scroll before triggering
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll <= 0) {
+        navbar.classList.remove('nav-hidden');
+        return;
+    }
+    
+    if (currentScroll > lastScroll && currentScroll > navbar.offsetHeight) {
+        // Scroll down
+        if (currentScroll - lastScroll > scrollThreshold) {
+            navbar.classList.add('nav-hidden');
+        }
+    } else if (currentScroll < lastScroll) {
+        // Scroll up
+        if (lastScroll - currentScroll > scrollThreshold) {
+            navbar.classList.remove('nav-hidden');
+        }
+    }
+    
+    lastScroll = currentScroll;
+});
+
     // Setup mobile menu
     initVanillaTilt();
 
@@ -94,30 +146,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, 500);
     
-    // Hide header on scroll down
-    let lastScroll = 0;
-    const header = document.querySelector('nav');
-    
-    if (header) {
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= 0) {
-                header.classList.remove('nav-hidden');
-                return;
-            }
-            
-            if (currentScroll > lastScroll && !header.classList.contains('nav-hidden')) {
-                // Scroll down
-                header.classList.add('nav-hidden');
-            } else if (currentScroll < lastScroll && header.classList.contains('nav-hidden')) {
-                // Scroll up
-                header.classList.remove('nav-hidden');
-            }
-            
-            lastScroll = currentScroll;
-        });
-    }
 
     // Preload images for better performance
     const preloadImages = () => {
@@ -136,22 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
     preloadImages();
 });
 
-// Mobile menu toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeMenu = document.getElementById('closeMenu');
 
-if (menuToggle && mobileMenu && closeMenu) {
-    menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-
-    closeMenu.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-}
 
 // Starfield initialization
 function createStars() {
@@ -206,3 +219,5 @@ function setActiveNavItem() {
         }
     });
 }
+
+

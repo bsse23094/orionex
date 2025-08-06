@@ -1,12 +1,59 @@
 /* Embedded & IoT Service Page Styles */
+/* Ensure footer stays at bottom */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+main {
+    flex: 1;
+}
+
+/* Navbar hide/show on scroll */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+nav.nav-hidden {
+    transform: translateY(-100%);
+}
+
+.stars, .twinkling {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* So they don't interfere with clicks */
+  z-index: -1; /* Place them behind all content */
+}
+
+footer {
+    margin-top: auto;
+    width: 100%;
+}
 
 /* Hero Section */
 .service-hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 90vh;
-    padding: 0 5%;
+    min-height: calc(100vh - 80px);
+    padding: 80px 5% 0;
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(5, 5, 16, 0.9), rgba(10, 10, 22, 0.9));
@@ -53,102 +100,6 @@
     position: relative;
     z-index: 3;
     animation: float 6s ease-in-out infinite;
-}
-
-/* IoT Visual in Hero */
-.iot-visual {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.iot-device {
-    position: absolute;
-    width: 250px;
-    height: 300px;
-    background: rgba(10, 10, 22, 0.8);
-    border: 1px solid var(--electric-blue);
-    border-radius: 15px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 20px 50px rgba(0, 209, 255, 0.2);
-    z-index: 2;
-}
-
-.device-screen {
-    position: absolute;
-    width: 90%;
-    height: 40%;
-    background: rgba(5, 5, 16, 0.9);
-    border: 1px solid var(--neon-purple);
-    border-radius: 5px;
-    top: 10%;
-    left: 5%;
-    overflow: hidden;
-}
-
-.device-screen::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(90deg, rgba(0, 209, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(rgba(0, 209, 255, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
-}
-
-.sensor-node {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgba(10, 10, 22, 0.8);
-    border: 1px solid var(--electric-blue);
-    box-shadow: 0 0 15px rgba(0, 209, 255, 0.3);
-}
-
-#node1 { top: 60%; left: -15%; }
-#node2 { top: 80%; right: -10%; }
-#node3 { bottom: -10%; left: 30%; }
-
-.data-connection {
-    position: absolute;
-    width: 2px;
-    height: 0;
-    background: linear-gradient(to bottom, var(--neon-purple), var(--electric-blue));
-    top: 50%;
-    left: 50%;
-    transform-origin: top center;
-}
-
-.network-cloud {
-    position: absolute;
-    width: 150px;
-    height: 80px;
-    background: rgba(138, 43, 226, 0.1);
-    border: 1px solid var(--neon-purple);
-    border-radius: 50%;
-    top: 20%;
-    right: 10%;
-    z-index: 1;
-}
-
-.network-cloud::after {
-    content: '';
-    position: absolute;
-    width: 120px;
-    height: 60px;
-    background: rgba(138, 43, 226, 0.05);
-    border: 1px solid var(--neon-purple);
-    border-radius: 50%;
-    top: 15px;
-    left: 15px;
 }
 
 /* Service Details */
@@ -416,56 +367,6 @@
     z-index: 3;
 }
 
-.iot-network {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-}
-
-.central-hub {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: rgba(10, 10, 22, 0.8);
-    border: 1px solid var(--electric-blue);
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 30px rgba(0, 209, 255, 0.3);
-    z-index: 2;
-}
-
-.connected-device {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: rgba(10, 10, 22, 0.8);
-    border: 1px solid var(--neon-purple);
-    border-radius: 10px;
-    z-index: 1;
-}
-
-#device1 { top: 20%; left: 20%; }
-#device2 { top: 70%; left: 20%; }
-#device3 { top: 45%; right: 20%; }
-
-.connection-line {
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(to right, var(--neon-purple), var(--electric-blue));
-    transform-origin: left center;
-    z-index: 1;
-}
-
-#line1 { top: 50px; left: 50px; transform: rotate(-30deg); }
-#line2 { top: 210px; left: 50px; transform: rotate(30deg); }
-#line3 { top: 130px; right: 50px; transform: rotate(180deg); }
-
 /* Animations */
 @keyframes pulse {
     0% {
@@ -490,22 +391,11 @@
     }
 }
 
-@keyframes dataFlow {
-    0% { height: 0; opacity: 0; }
-    100% { height: 200px; opacity: 0.7; transform: translate(-50%, -50%) rotate(45deg); }
-}
-
-@keyframes dataStream {
-    0% { height: 0; opacity: 0; }
-    50% { height: 150px; opacity: 0.7; }
-    100% { height: 0; opacity: 0; }
-}
-
 /* Responsive Styles */
 @media (max-width: 1024px) {
     .service-hero {
         flex-direction: column;
-        padding-top: 120px;
+        padding-top: 100px;
         padding-bottom: 5rem;
     }
     
@@ -513,11 +403,6 @@
         margin-bottom: 3rem;
         text-align: center;
         max-width: 100%;
-    }
-    
-    .iot-visual {
-        width: 100%;
-        max-width: 400px;
     }
     
     .cta-container {
@@ -540,10 +425,6 @@
         font-size: 2rem;
     }
     
-    .iot-visual {
-        height: 300px;
-    }
-    
     .hero-image, .cta-image {
         max-height: 300px;
     }
@@ -563,3 +444,4 @@
 .js-tilt-glare-inner {
     background: linear-gradient(0deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
 }
+

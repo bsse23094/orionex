@@ -8,6 +8,20 @@
     overflow: hidden;
 }
 
+/* Navbar hide/show on scroll */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+nav.nav-hidden {
+    transform: translateY(-100%);
+}
+
 .service-hero .hero-content {
     max-width: 1400px;
     margin: 0 auto;
@@ -578,4 +592,267 @@
     --neon-purple: #8a2be2;
     --electric-blue: #00d1ff;
     --glow: 0 0 20px rgba(0, 209, 255, 0.7);
+}
+
+/* iPhone & Mobile Safari Specific Responsive Styles */
+@media (max-width: 480px) {
+    .service-hero {
+        padding: 7rem 5% 4rem;
+        min-height: auto;
+    }
+    
+    .service-hero .hero-text h1 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+    
+    .service-hero .hero-text p {
+        font-size: 1rem;
+    }
+    
+    .browser-window {
+        transform: rotateY(-5deg) rotateX(2deg); /* Reduce 3D effect for small screens */
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-header p {
+        font-size: 1rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
+    }
+    
+    .tech-items {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-cta h2 {
+        font-size: 2rem;
+    }
+    
+    .service-cta p {
+        font-size: 1rem;
+    }
+    
+    /* Fix for Safari mobile viewport units */
+    @supports (-webkit-touch-callout: none) {
+        .service-hero {
+            min-height: -webkit-fill-available;
+            height: -webkit-fill-available;
+        }
+    }
+    
+    /* Prevent text size adjustment in Safari */
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    /* Fix for sticky hover effects on mobile */
+    .feature-card:hover, 
+    .tech-item:hover,
+    .case-card:hover {
+        transform: none !important;
+    }
+}
+
+/* Very small devices (320px and below) */
+@media (max-width: 320px) {
+    .service-hero .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .feature-card, 
+    .tech-item {
+        padding: 1.2rem;
+    }
+    
+    .tech-logo {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    /* Fix for 100vh issue in mobile Safari */
+    .service-hero {
+        min-height: -webkit-fill-available;
+    }
+    
+    /* Fix for scrolling performance */
+    .browser-window, 
+    .feature-card, 
+    .tech-item {
+        -webkit-transform: translateZ(0);
+    }
+    
+    /* Fix for font rendering */
+    body {
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+
+/* Smaller Mobile Devices (390px - 430px) with 3D Preservation */
+@media (max-width: 433px) {
+    .service-hero {
+        padding: 6rem 4% 3rem;
+        min-height: auto;
+        perspective: none; /* Reset perspective for performance */
+    }
+
+    .hero-content {
+        gap: 2rem !important;
+    }
+
+    .service-hero .hero-text h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+
+    .service-hero .hero-text p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Optimized 3D Effects */
+    .web-visualization {
+        perspective: 500px; /* Reduced for mobile */
+        transform-style: preserve-3d;
+        animation: float 6s ease-in-out infinite;
+        margin: 0 auto;
+        max-width: 320px;
+    }
+
+    .browser-window {
+        transform: rotateY(-10deg) rotateX(3deg) scale(0.9); /* Adjusted angles and scale */
+        transition: transform 0.4s ease;
+    }
+
+    .browser-window:hover {
+        transform: rotateY(-5deg) rotateX(2deg) scale(0.9);
+    }
+
+    /* 3D Card Adjustments */
+    .feature-card,
+    .tech-item {
+        transform: translateZ(10px); /* Reduced Z-axis movement */
+    }
+
+    .feature-card:hover,
+    .tech-item:hover {
+        transform: translateY(-5px) translateZ(15px); /* Subtler hover effect */
+        box-shadow: 0 10px 20px rgba(0, 209, 255, 0.2); /* Reduced glow */
+    }
+
+    /* Content Adjustments */
+    .section-header {
+        margin-bottom: 3rem !important;
+    }
+
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .section-header p {
+        font-size: 0.95rem;
+    }
+
+    .features-grid,
+    .tech-items {
+        gap: 1.5rem !important;
+    }
+
+    .feature-card {
+        padding: 1.3rem;
+    }
+
+    .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    .tech-badges span {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .tech-item {
+        padding: 1.2rem;
+    }
+
+    .tech-logo {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    /* Safari-specific 3D Optimizations */
+    @supports (-webkit-touch-callout: none) {
+        .web-visualization {
+            -webkit-perspective: 500px;
+            -webkit-transform-style: preserve-3d;
+        }
+
+        .browser-window {
+            -webkit-transform: rotateY(-10deg) rotateX(3deg) scale(0.9);
+            -webkit-transition: -webkit-transform 0.4s ease;
+        }
+
+        /* Hardware acceleration for smoother 3D */
+        .feature-card,
+        .tech-item,
+        .browser-window {
+            -webkit-transform: translate3d(0,0,0);
+            -webkit-backface-visibility: hidden;
+        }
+    }
+
+    /* Touch Device 3D Interactions */
+    @media (hover: none) {
+        .feature-card:active,
+        .tech-item:active,
+        .browser-window:active {
+            transform: translateY(-5px) translateZ(15px);
+            box-shadow: 0 10px 20px rgba(0, 209, 255, 0.2);
+        }
+    }
+}
+
+/* Extra small adjustments for 390px and below */
+@media (max-width: 390px) {
+    .service-hero .hero-text h1 {
+        font-size: 1.7rem;
+    }
+
+    .web-visualization {
+        max-width: 280px;
+    }
+
+    .browser-window {
+        transform: rotateY(-8deg) rotateX(2deg) scale(0.85);
+    }
+
+    .feature-card:hover,
+    .tech-item:hover {
+        transform: translateY(-3px) translateZ(10px);
+    }
 }

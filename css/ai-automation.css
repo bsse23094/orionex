@@ -1,7 +1,18 @@
 /* AI & Automation Service Page Styles */
 /* AI Hero Section - Updated to match Web Dev style */
 .service-hero {
-    padding: 12rem 5% 8rem;
+    padding: 7rem 5% 8rem;
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+    }
+    .service-hero {
+        padding-top: 100px;
+    }
+}
     min-height: 90vh;
     display: flex;
     align-items: center;
@@ -799,5 +810,222 @@
     
     .tech-carousel, .case-study-carousel {
         padding-bottom: 3rem;
+    }
+}
+
+/* AI Automation Mobile Responsive Styles (390-430px) */
+@media (max-width: 430px) {
+    /* Hero Section */
+    .service-hero {
+        padding: 5rem 4% 3rem;
+        min-height: auto;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .service-hero .hero-text h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+    }
+
+    .service-hero .hero-text p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-visual {
+        height: 280px;
+        order: -1;
+        margin-bottom: 2rem;
+    }
+
+    /* AI Core Visualization */
+    .ai-core {
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
+    }
+
+    .core-logo.main {
+        width: 80px;
+    }
+
+    .core-logo.orbit {
+        width: 50px;
+    }
+
+    /* Adjust orbit positions for smaller circle */
+    .core-logo.orbit:nth-child(1) { top: 8%; left: 50%; }
+    .core-logo.orbit:nth-child(2) { top: 50%; right: 8%; }
+    .core-logo.orbit:nth-child(3) { bottom: 8%; left: 50%; }
+    .core-logo.orbit:nth-child(4) { top: 50%; left: 8%; }
+    .core-logo.orbit:nth-child(5) { top: 12%; right: 12%; }
+    .core-logo.orbit:nth-child(6) { bottom: 12%; right: 12%; }
+    .core-logo.orbit:nth-child(7) { bottom: 12%; left: 12%; }
+    .core-logo.orbit:nth-child(8) { top: 12%; left: 12%; }
+
+    .ai-core:hover .core-logo.orbit::after {
+        width: 120px; /* Shorter connection lines */
+    }
+
+    /* Sections */
+    .section-header {
+        margin-bottom: 3rem !important;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+    }
+
+    /* Cards */
+    .capabilities-grid,
+    .tech-showcase .capabilities-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .capability-card {
+        padding: 1.5rem;
+        transform: translateZ(10px); /* Maintain 3D but reduced */
+    }
+
+    .capability-card:hover {
+        transform: translateY(-5px) translateZ(15px); /* Reduced hover effect */
+    }
+
+    .card-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .capability-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .capability-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Process Steps */
+    .process-steps {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+
+    .process-step {
+        padding: 1.5rem;
+    }
+
+    .step-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+
+    .step-connector {
+        display: none;
+    }
+
+    /* CTA Section */
+    .service-cta {
+        padding: 4rem 5%;
+    }
+
+    .cta-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .cta-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .cta-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cta-graphic {
+        height: 200px;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    /* Safari Specific Fixes */
+    @supports (-webkit-touch-callout: none) {
+        .service-hero {
+            min-height: -webkit-fill-available;
+            height: 100vh;
+            height: -webkit-fill-available;
+        }
+        
+        /* Enable hardware acceleration for 3D */
+        .ai-core,
+        .capability-card,
+        .process-step {
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
+        }
+        
+        /* Smoother animations */
+        .core-logo {
+            -webkit-transform: translate3d(0,0,0);
+        }
+    }
+
+    /* Touch Device Interactions */
+    @media (hover: none) {
+        .capability-card:active,
+        .process-step:active,
+        .ai-core:active .core-logo {
+            transform: translateY(-5px) translateZ(15px);
+            box-shadow: 0 10px 20px rgba(0, 209, 255, 0.2);
+        }
+    }
+}
+
+/* Extra Small Adjustments (390px and below) */
+@media (max-width: 390px) {
+    .service-hero .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .ai-core {
+        width: 260px;
+        height: 260px;
+    }
+    
+    .core-logo.main {
+        width: 70px;
+    }
+    
+    .core-logo.orbit {
+        width: 45px;
+    }
+    
+    .capability-card {
+        padding: 1.2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.7rem;
     }
 }

@@ -1,5 +1,74 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Tab functionality
+
+
+
+    let lastScroll = 0;
+const navbar = document.querySelector('nav');
+const scrollThreshold = 5; // How many pixels to scroll before triggering
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll <= 0) {
+        navbar.classList.remove('nav-hidden');
+        return;
+    }
+    
+    if (currentScroll > lastScroll && currentScroll > navbar.offsetHeight) {
+        // Scroll down
+        if (currentScroll - lastScroll > scrollThreshold) {
+            navbar.classList.add('nav-hidden');
+        }
+    } else if (currentScroll < lastScroll) {
+        // Scroll up
+        if (lastScroll - currentScroll > scrollThreshold) {
+            navbar.classList.remove('nav-hidden');
+        }
+    }
+    
+    lastScroll = currentScroll;
+});
+
+     const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    if (menuToggle && mobileMenu && closeMenu) {
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on links
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    
+
+    // Set active nav item
+    function setActiveNavItem() {
+        const currentPage = window.location.pathname.split('/').pop();
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    setActiveNavItem();
+
+
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
     
