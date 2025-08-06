@@ -2,29 +2,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize starfield
     createStars();
     
-     function adjustViewportForIOS() {
-        const hero = document.querySelector('.hero-section');
-        if (!hero) return;
-        
-        // First try with vh units
-        hero.style.height = '100vh';
-        
-        // If still cropped (iOS), use window.innerHeight
-        if (hero.offsetHeight > window.innerHeight) {
-            hero.style.height = window.innerHeight + 'px';
-        }
-        
-        // Add transform to force layer creation
-        hero.style.transform = 'translateZ(0)';
+    function adjustViewportForIOS() {
+    const hero = document.querySelector('.service-hero');
+    if (!hero) return;
+    
+    // First try with vh units
+    hero.style.height = '100vh';
+    
+    // If iOS, use more reliable units
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        hero.style.height = '100%';
+        hero.style.minHeight = '100%';
+        document.documentElement.style.height = '100%';
+        document.body.style.height = '100%';
     }
     
-    // Run initially and on orientation changes
-    adjustViewportForIOS();
-    window.addEventListener('resize', adjustViewportForIOS);
-    window.addEventListener('orientationchange', adjustViewportForIOS);
-    
-    // Delay slightly to ensure DOM is ready
-    setTimeout(adjustViewportForIOS, 100);
+    // Add transform to force layer creation
+    hero.style.transform = 'translateZ(0)';
+}
+
+// Run on load and orientation change
+window.addEventListener('load', adjustViewportForIOS);
+window.addEventListener('resize', adjustViewportForIOS);
+window.addEventListener('orientationchange', adjustViewportForIOS);
 
 
     setupMobileMenu();
