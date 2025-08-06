@@ -788,6 +788,27 @@ nav.nav-hidden {
         font-size: 0.95rem;
     }
 
+    .hero-content {
+        display: flex !important;
+        flex-direction: column;
+    }
+    
+    .hero-visual {
+        order: -1;
+        margin-bottom: 2rem;
+    }
+    
+    .ai-core {
+        width: 280px !important;
+        height: 280px !important;
+    }
+    
+    /* Ensure text doesn't overflow */
+    .hero-text h1, .hero-text p {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
     .features-grid,
     .tech-items {
         gap: 1.5rem !important;

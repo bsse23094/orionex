@@ -1699,3 +1699,28 @@ twinkling {
     width: 20px;
     text-align: center;
 }
+
+/* iOS Viewport Fixes */
+@supports (-webkit-touch-callout: none) {
+    /* Fix for 100vh issue */
+    .service-hero {
+        height: 100vh;
+        height: -webkit-fill-available;
+        min-height: -webkit-fill-available;
+    }
+    
+    /* Prevent text size adjustment */
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    /* Fix for sticky hover effects */
+    @media (hover: none) {
+        .capability-card:active,
+        .process-step:active,
+        .ai-core:active .core-logo {
+            transform: translateY(-5px) translateZ(15px);
+            box-shadow: 0 10px 20px rgba(0, 209, 255, 0.2);
+        }
+    }
+}
