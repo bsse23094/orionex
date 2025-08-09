@@ -480,6 +480,7 @@ nav.nav-hidden {
   .hero-visual {
     order: 1;
     margin-bottom: 2rem;
+    display: none; /* Hide the visual/code editor on mobile */
   }
   
   .service-hero .hero-text h1 {
@@ -491,15 +492,11 @@ nav.nav-hidden {
   }
   
   .web-visualization {
-    perspective: none;
-    animation: none;
+    display: none; /* Ensure code editor is hidden */
   }
   
   .browser-window {
-    transform: none !important;
-    width: 100% !important;
-    max-width: 400px;
-    margin: 0 auto;
+    display: none; /* Ensure code editor is hidden */
   }
   
   .features-grid {
@@ -521,17 +518,6 @@ nav.nav-hidden {
   .tech-item:hover {
     transform: none !important;
     box-shadow: 0 5px 15px rgba(0, 209, 255, 0.2);
-  }
-  
-  /* Code editor adjustments for mobile */
-  .editor-content pre {
-    font-size: 0.8rem;
-    white-space: pre;
-    width: max-content;
-  }
-  
-  .editor-header {
-    padding: 0.5rem;
   }
 }
 
